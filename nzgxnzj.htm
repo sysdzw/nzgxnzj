@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_626784_0j006ef09vff.css">
+    <script src="js/jquery1.11.0.min.js"></script>
+    <title>"你只关心你自己"梗生成器</title>
+</head>
+<style>
+*{margin:0; padding:0;}
+body{font-size:15px;}
+.main{width:98%; max-width: 980px; margin:10px auto; border:0px solid #efefef; }
+.row_line{width:95%; margin:auto; margin-top:5px;}
+.input{height:30px; padding-left:3px; font-size:14px; border:1px solid #ccc;}
+#result {width:95%; margin:auto; margin-top: 20px; }
+#result_area{width:100%; padding-left:5px; font-size:17px; border:1px solid green;box-sizing: border-box;}
+#copy_result{width:95%; margin:auto; margin-top:30px; background:green; color:#fff; border-radius: 5px; text-align: center; height: 50px; line-height: 50px; font-size: 17px;}
+</style>
+
+<body>
+<div class="main">
+    <div class="row_line">对象1：<input type="text" class="input" name="" value="皮皮虾" id="a1"> 如：皮皮虾</div>
+    <div class="row_line">事件1：<input type="text" class="input" name="" value="我们走" id="a2"> 如：我们走</div>
+    <div class="row_line">转折1：<input type="text" class="input" name="" value="很累了" id="a3"> 如：很累了</div>
+    <div class="row_line">转折2：<input type="text" class="input" name="" value="不想走" id="a4"> 如：不想走</div>
+    <div class="row_line">转折3：<input type="text" class="input" name="" value="想念自己的家人" id="a5"> 如：想念家人</div>
+    <div class="row_line">转折4：<input type="text" class="input" name="" value="被你骑着走" id="a6"> 如：被你骑着走</div>
+
+    <div id="result">生成结果（可修改）：
+    	<textarea name="" id="result_area" cols="30" rows="10"></textarea>
+
+    </div>
+    <div id="copy_result">复制以上结果</div>
+</div>
+</body>
+<script>
+$(".input").bind('click input propertychange', function() {
+	var a1 = $("#a1").val();
+	var a2 = $("#a2").val();
+	var a3 = $("#a3").val();
+	var a4 = $("#a4").val();
+	var a5 = $("#a5").val();
+	var a6 = $("#a6").val();
+	$("#result_area").html("你总是说“" + a1 + a2 + "”\n可是" + a1 + a3 + "，\n" + a1 + a4 + "，\n他" + a5 + "，\n而不是" + a6 + "，\n你关心过这些吗？\n没有！你只关心你自己！");
+});
+
+$(".input").click();
+
+$("#copy_result").click(function(){
+	document.querySelector('#result_area').select();
+	document.execCommand("Copy");
+	alert('复制成功');
+});
+</script>
+
+</html>
